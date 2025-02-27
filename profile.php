@@ -1,3 +1,9 @@
+<?php
+require_once('connection/connection.php');
+require_once('helper/helper-func.php');
+if(user_found(page_url())==false){redirect('login.html');}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,13 +138,11 @@
                                 <li><a class="dropdown-item" href="#">
                                         <span>Following</span>
                                         <img src="./images/add-friend.png">
-                                    </a>
-                                </li>
+                                    </a></li>
                                 <li><a class="dropdown-item" href="#">
                                         <span>Favorites</span>
                                         <img src="./images/star.png">
-                                    </a>
-                                </li>
+                                    </a></li>
                             </ul>
                         </div>
                         <div class="left">
@@ -154,7 +158,7 @@
                             </div>
                             <div class="notifications notification_icon">
                                 <a href="./notification.html">
-                                    <img src="./images/love.png">
+                                     <img src="./images/love.png">
                                 </a>
                             </div>
 
@@ -181,12 +185,12 @@
                         </ul>
                     </div>
                     <div class="left">
-
+                        
                         <img src="./images/send.png">
                         <a href="./notification.html">
                             <img class="notification_icon" src="./images/love.png">
                         </a>
-
+                        
                     </div>
                 </div>
             </div>
@@ -195,7 +199,7 @@
                 <a href="./home.html"><img src="./images/accueil.png"></a>
                 <a href="./explore.html"><img src="./images/compass.png"></a>
                 <a href="./reels.html"><img src="./images/video.png"></a>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#create_modal"><img src="./images/tab.png"></a>
+                <a  href="#" data-bs-toggle="modal" data-bs-target="#create_modal"><img src="./images/tab.png"></a>
                 <a href="profile.html"><img class="circle story" src="./images/profile_img.jpg"></a>
             </div>
         </div>
@@ -361,235 +365,114 @@
         </div>
         <!--***** nav menu end ****** -->
 
-        <div class="second_container">
-            <!--***** posts_container start ****** -->
-            <div class="main_section">
-                <div class="posts_container">
-                    <div class="stories">
-                        <div class="owl-carousel items">
+        <div class="profile_container">
+            <div class="profile_info">
+                <div class="cart">
+                        <div class="img">
+                            <img src="./images/profile_img.jpg" alt="">
                         </div>
-                    </div>
-
-                    <div class="posts">
-                    </div>
-
+                        <div class="info">
+                            <p class="name">
+                                <?= page_url() ?>
+                                <button class="edit_profile">
+                                    Edit profile 
+                                </button>
+                            </p>
+                            <div class="general_info">
+                                <p><span>1</span> post</p>
+                                <p><span>177</span> followers</p>
+                                <p><span>137</span> following</p>
+                            </div>
+                            <p class="nick_name">Zin Ess</p>
+                            <p class="desc">
+                                I'am an engineering student <br>
+                                ENSAO
+                            </p>
+                        </div>
                 </div>
             </div>
-            <!--***** posts_container end ****** -->
-
-            <!--***** followers_container start ****** -->
-            <div class="followers_container">
-                <div>
-                    <div class="cart">
-                        <div>
-                            <div class="img">
-                                <img src="./images/profile_img.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <p class="name">Zineb_essoussi</p>
-                                <p class="second_name">Zim Ess</p>
-                            </div>
-                        </div>
-                        <div class="switch">
-                            <a href="#">Switch</a>
-                        </div>
+            <div class="highlights">
+                <div class="highlight">
+                    <div class="img">
+                        <img src="./images/profile_img.jpg" alt="">
                     </div>
-                    <div class="suggestions">
-                        <div class="title">
-                            <h4>Suggestions for you</h4>
-                            <a class="dark" href="#">See All</a>
-                        </div>
-                        <div class="cart">
-                            <div>
-                                <div class="img">
-                                    <img src="./images/profile_img.jpg" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="name">Zineb_essoussi</p>
-                                    <p class="second_name">Zim Ess</p>
-                                </div>
-                            </div>
-                            <div class="switch">
-                                <button class="follow_text" href="#">follow</button>
-                            </div>
-                        </div>
-                        <div class="cart">
-                            <div>
-                                <div class="img">
-                                    <img src="./images/profile_img.jpg" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="name">Zineb_essoussi</p>
-                                    <p class="second_name">Zim Ess</p>
-                                </div>
-                            </div>
-                            <div class="switch">
-                                <button class="follow_text" href="#">follow</button>
-                            </div>
-                        </div>
-                        <div class="cart">
-                            <div>
-                                <div class="img">
-                                    <img src="./images/profile_img.jpg" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="name">Zineb_essoussi</p>
-                                    <p class="second_name">Zim Ess</p>
-                                </div>
-                            </div>
-                            <div class="switch">
-                                <button class="follow_text" href="#">follow</button>
-                            </div>
-                        </div>
+                    <p>conseils</p>
+                </div>
+                <div class="highlight highlight_add">
+                    <div class="img">
+                        <img src="./images/plus.png" alt="">
                     </div>
+                    <p>New</p>
                 </div>
             </div>
-            <!--***** followers_container end ****** -->
-
-        </div>
-
-        <!-- Modal for sending posts-->
-        <div class="modal fade" id="send_message_modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Share</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="send">
-                            <div class="search_person">
-                                <p>To:</p>
-                                <input type="text" placeholder="Search">
+            <hr>
+            <div class="posts_profile">
+                <ul class="nav-pills w-100 d-flex justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item mx-2" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                            <img src="./images/feed.png" alt="posts">
+                            POSTS
+                        </button>
+                    </li>
+                    <li class="nav-item mx-2" role="presentation">
+                      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                        <img src="./images/save-instagram.png" alt="saved posts">
+                        SAVED
+                      </button>
+                    </li>
+                    <li class="nav-item mx-2" role="presentation">
+                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <img src="./images/tagged.png" alt="tagged posts">
+                        TAGGED
+                      </button>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                        <div id="posts_sec" class="post">
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/Jqh3rHv/img1.jpg" alt="">
                             </div>
-                            <p>Suggested</p>
-                            <div class="poeple">
-                                <div class="person">
-                                    <div class="d-flex">
-                                        <div class="img">
-                                            <img src="./images/profile_img.jpg" alt="">
-                                        </div>
-                                        <div class="content">
-                                            <div class="person">
-                                                <h4>namePerson</h4>
-                                                <span>zim ess</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <di class="circle">
-                                        <span></span>
-                                </div>
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/2ZxBFVp/img2.jpg" alt="">
                             </div>
-                            <div class="person">
-                                <div class="d-flex">
-                                    <div class="img">
-                                        <img src="./images/profile_img.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <div class="person">
-                                            <h4>namePerson</h4>
-                                            <span>zim ess</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="circle">
-                                    <span></span>
-                                </div>
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/5vQt677/img3.jpg" alt="">
                             </div>
-
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/pJ8thst/account13.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/j8L7FPY/account10.jpg" alt="">
+                            </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary">Send</button>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                        <div id="saved_sec" class="post">
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/6WvdZS9/account12.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/pJ8thst/account13.jpg" alt="">
+                            </div>
+                            
+                        </div>
                     </div>
-                </div>
-
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                        <div id="tagged" class="post">
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/Zhc5hHp/account4.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid item_img" src="https://i.ibb.co/SPTNbJL/account5.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
             </div>
         </div>
 
-        <!-- Modal for add messages-->
-        <div class="modal fade" id="message_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Comments</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="comments">
-                            <div class="comment">
-                                <div class="d-flex">
-                                    <div class="img">
-                                        <img src="./images/profile_img.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <div class="person">
-                                            <h4>namePerson</h4>
-                                            <span>3j</span>
-                                        </div>
-                                        <p>Wow amzing shot</p>
-                                        <div class="replay">
-                                            <button class="replay">replay</button>
-                                            <button class="translation">see translation</button>
-                                        </div>
-                                        <div class="answers">
-                                            <button class="see_comment">
-                                                <span class="hide_com">Hide all responses</span>
-                                                <span class="show_c"> <span class="line"></span> See the <span> 1
-                                                    </span> answers</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="like">
-                                    <img class="not_loved" src="./images/love.png" alt="">
-                                    <img class="loved" src="./images/heart.png" alt="">
-                                    <p> 55</p>
-                                </div>
-                            </div>
-                            <div class="responses">
-                                <div class="response comment">
-                                    <div class="d-flex">
-                                        <div class="img">
-                                            <img src="./images/profile_img.jpg" alt="">
-                                        </div>
-                                        <div class="content">
-                                            <div class="person">
-                                                <h4>namePerson</h4>
-                                                <span>3j</span>
-                                            </div>
-                                            <p>Wow amzing shot</p>
-                                            <div class="replay">
-                                                <button>replay</button>
-                                                <button>see translation</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="like">
-                                        <img class="not_loved" src="./images/love.png" alt="">
-                                        <img class="loved" src="./images/heart.png" alt="">
-                                        <p> 55</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <form method="post">
-                            <div class="input">
-                                <img src="./images/profile_img.jpg" alt="">
-                                <input type="text" id="emoji_comment" placeholder="Add a comment..." />
-                            </div>
-                            <!-- <div class="emogi">
-                                <img src="./images/emogi.png" alt="">
-                            </div> -->
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!--Create model-->
         <div class="modal fade" id="create_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -642,10 +525,8 @@
 
     </div>
 
-    <!-- <script src="./sass/vender/bootstrap.bundle.js"></script>
-    <script src="./sass/vender/bootstrap.bundle.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>    
     <script src="./owlcarousel/jquery.min.js"></script>
     <script src="./owlcarousel/owl.carousel.min.js"></script>
     <script src="./js/carousel.js"></script>
